@@ -1,0 +1,66 @@
+[
+    {
+      "name": "Luiz Roberto",
+      "rating": 4,
+      "formation": "Técnico em eletrotécnica",
+      "experience": "5 anos de experiência",
+      "specialty": "Eletricidade residencial"
+    },
+    {
+      "name": "Carla Menezes",
+      "rating": 5,
+      "formation": "Engenheira Civil",
+      "experience": "8 anos de experiência",
+      "specialty": "Projetos estruturais"
+    },
+    {
+      "name": "João Pedro",
+      "rating": 3,
+      "formation": "Técnico em informática",
+      "experience": "2 anos de experiência",
+      "specialty": "Suporte técnico e redes"
+    },
+    {
+      "name": "Amanda Souza",
+      "rating": 4,
+      "formation": "Esteticista",
+      "experience": "4 anos de experiência",
+      "specialty": "Limpeza de pele e cuidados faciais"
+    },
+    {
+      "name": "Fernanda Lima",
+      "rating": 5,
+      "formation": "Fisioterapeuta",
+      "experience": "6 anos de experiência",
+      "specialty": "Fisioterapia ortopédica"
+    },
+    {
+      "name": "Rafael Martins",
+      "rating": 2,
+      "formation": "Técnico em refrigeração",
+      "experience": "3 anos de experiência",
+      "specialty": "Instalação de ar-condicionado"
+    },
+    {
+      "name": "Juliana Alves",
+      "rating": 5,
+      "formation": "Organizadora de eventos",
+      "experience": "7 anos de experiência",
+      "specialty": "Casamentos e aniversários"
+    },
+    {
+      "name": "Thiago Rocha",
+      "rating": 3,
+      "formation": "Motorista profissional",
+      "experience": "10 anos de experiência",
+      "specialty": "Transporte executivo"
+    },
+    {
+      "name": "Vanessa Ribeiro",
+      "rating": 4,
+      "formation": "Cabeleireira",
+      "experience": "6 anos de experiência",
+      "specialty": "Colorimetria e cortes femininos"
+    }
+  ]
+  

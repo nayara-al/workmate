@@ -5,6 +5,7 @@ type ButtonProps = {
   variant?: "primary" | "secondary" | "outline"; // Tipos de botão
   className?: string; // Para estilos personalizados
   onClick?: () => void;
+  type?: "button" | "submit" | "reset" | undefined
 };
 
 export default function Button({
@@ -12,6 +13,7 @@ export default function Button({
   variant = "primary",
   className = "",
   onClick,
+  type = "button"
 }: ButtonProps) {
   // Definir classes base + variantes
   const baseStyles = "py-2 px-4 rounded font-medium transition-opacity";
@@ -24,7 +26,7 @@ export default function Button({
   return (
     <button
       className={twMerge(baseStyles, variantStyles[variant], className)}
-      onClick={onClick}
+      onClick={onClick} type={type}
     >
       {children}
     </button>

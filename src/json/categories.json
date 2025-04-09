@@ -1,0 +1,39 @@
+[
+    {
+      "title": "Reparos e Manutenção",
+      "services": ["Eletricista", "Encanador", "Técnico de Ar-condicionado", "Pedreiro"]
+    },
+    {
+      "title": "Serviços Domésticos",
+      "services": ["Diarista", "Cozinheira", "Babá", "Passadeira"]
+    },
+    {
+      "title": "Construção e Engenharia",
+      "services": ["Engenheiro Civil", "Arquiteto", "Mestre de Obras", "Topógrafo"]
+    },
+    {
+      "title": "Tecnologia e TI",
+      "services": ["Desenvolvedor Web", "Técnico em Informática", "Suporte Técnico", "Designer UX/UI"]
+    },
+    {
+      "title": "Beleza e Estética",
+      "services": ["Cabeleireiro", "Manicure", "Maquiador", "Esteticista"]
+    },
+    {
+      "title": "Transporte e Logística",
+      "services": ["Motorista Particular", "Motoboy", "Frete", "Entregador"]
+    },
+    {
+      "title": "Saúde e Bem-estar",
+      "services": ["Personal Trainer", "Fisioterapeuta", "Massoterapeuta", "Nutricionista"]
+    },
+    {
+      "title": "Eventos e Entretenimento",
+      "services": ["Fotógrafo", "DJ", "Cerimonialista", "Decorador"]
+    },
+    {
+      "title": "Diversos",
+      "services": ["Tradutor", "Professor Particular", "Marceneiro", "Pintor"]
+    }
+  ]
+  
