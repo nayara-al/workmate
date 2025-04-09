@@ -1,7 +1,7 @@
 'use client';
 import { useSearchParams } from 'next/navigation';
 import professionals from '@/json/professional.json';
-import MoleculeComponent from '../molecules';
+import MoleculeComponent from '.';
 
 export default function SearchResults() {
     const searchParams = useSearchParams();
