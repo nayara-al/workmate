@@ -26,7 +26,7 @@ export default function NavBar({ isAuthenticated }: NavBarProps) {
       </NavLink>
       {isAuthenticated ? (
         <>
-          <NavLink href="/profile">
+          <NavLink href="/meu-perfil">
             <PersonIcon />
             Meu perfil
           </NavLink>

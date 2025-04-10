@@ -1,66 +1,110 @@
 [
-    {
-      "name": "Luiz Roberto",
-      "rating": 4,
-      "formation": "Técnico em eletrotécnica",
-      "experience": "5 anos de experiência",
-      "specialty": "Eletricidade residencial"
-    },
-    {
-      "name": "Carla Menezes",
-      "rating": 5,
-      "formation": "Engenheira Civil",
-      "experience": "8 anos de experiência",
-      "specialty": "Projetos estruturais"
-    },
-    {
-      "name": "João Pedro",
-      "rating": 3,
-      "formation": "Técnico em informática",
-      "experience": "2 anos de experiência",
-      "specialty": "Suporte técnico e redes"
-    },
-    {
-      "name": "Amanda Souza",
-      "rating": 4,
-      "formation": "Esteticista",
-      "experience": "4 anos de experiência",
-      "specialty": "Limpeza de pele e cuidados faciais"
-    },
-    {
-      "name": "Fernanda Lima",
-      "rating": 5,
-      "formation": "Fisioterapeuta",
-      "experience": "6 anos de experiência",
-      "specialty": "Fisioterapia ortopédica"
-    },
-    {
-      "name": "Rafael Martins",
-      "rating": 2,
-      "formation": "Técnico em refrigeração",
-      "experience": "3 anos de experiência",
-      "specialty": "Instalação de ar-condicionado"
-    },
-    {
-      "name": "Juliana Alves",
-      "rating": 5,
-      "formation": "Organizadora de eventos",
-      "experience": "7 anos de experiência",
-      "specialty": "Casamentos e aniversários"
-    },
-    {
-      "name": "Thiago Rocha",
-      "rating": 3,
-      "formation": "Motorista profissional",
-      "experience": "10 anos de experiência",
-      "specialty": "Transporte executivo"
-    },
-    {
-      "name": "Vanessa Ribeiro",
-      "rating": 4,
-      "formation": "Cabeleireira",
-      "experience": "6 anos de experiência",
-      "specialty": "Colorimetria e cortes femininos"
-    }
-  ]
-  
+  {
+    "id": "luiz-roberto-da-silva",
+    "name": "Luiz Roberto da Silva",
+    "rating": 4.8,
+    "city": "São Paulo",
+    "state": "SP",
+    "availability": "Segunda a sábado",
+    "formation": "Curso Técnico em Sistemas Elétricos – SENAI (2018)",
+    "experience": "6 anos + EletroTech Services (2018–2022)",
+    "certifications": ["NR-10", "NR-35"],
+    "specialties": ["Automação", "Manutenção elétrica", "Instalações residenciais e comerciais"]
+  },
+  {
+    "id": "carla-menezes",
+    "name": "Carla Menezes",
+    "rating": 5.0,
+    "city": "Rio de Janeiro",
+    "state": "RJ",
+    "availability": "Segunda a sexta",
+    "formation": "Engenharia Civil – UFRJ (2014)",
+    "experience": "8 anos + Construtora ValeRio (2014–2022)",
+    "certifications": ["CREA Ativo"],
+    "specialties": ["Projetos estruturais", "Reformas residenciais"]
+  },
+  {
+    "id": "joao-pedro-lima",
+    "name": "João Pedro Lima",
+    "rating": 3.5,
+    "city": "Belo Horizonte",
+    "state": "MG",
+    "availability": "Todos os dias",
+    "formation": "Técnico em Informática – SENAC (2021)",
+    "experience": "2 anos + Suporte Fácil (2022–2024)",
+    "certifications": ["CompTIA A+"],
+    "specialties": ["Redes", "Manutenção de PCs", "Atendimento remoto"]
+  },
+  {
+    "id": "amanda-souza",
+    "name": "Amanda Souza",
+    "rating": 4.6,
+    "city": "Salvador",
+    "state": "BA",
+    "availability": "Terça a domingo",
+    "formation": "Curso de Estética – Instituto Beleza Natural (2019)",
+    "experience": "4 anos",
+    "certifications": ["Estética Facial Avançada"],
+    "specialties": ["Limpeza de pele", "Cuidados com acne", "Massagem facial"]
+  },
+  {
+    "id": "fernanda-lima",
+    "name": "Fernanda Lima",
+    "rating": 5.0,
+    "city": "Curitiba",
+    "state": "PR",
+    "availability": "Segunda a sexta",
+    "formation": "Fisioterapia – UFPR (2016)",
+    "experience": "6 anos + Clínica Movimenta (2016–2022)",
+    "certifications": ["CREFITO Ativo"],
+    "specialties": ["Fisioterapia ortopédica", "Reabilitação pós-cirúrgica"]
+  },
+  {
+    "id": "rafael-martins",
+    "name": "Rafael Martins",
+    "rating": 2.8,
+    "city": "Fortaleza",
+    "state": "CE",
+    "availability": "Segunda a sábado",
+    "formation": "Técnico em Refrigeração – SENAI (2020)",
+    "experience": "3 anos",
+    "certifications": ["Certificado em Gás Refrigerante"],
+    "specialties": ["Instalação de ar-condicionado", "Manutenção preventiva"]
+  },
+  {
+    "id": "juliana-alves",
+    "name": "Juliana Alves",
+    "rating": 5.0,
+    "city": "Brasília",
+    "state": "DF",
+    "availability": "Todos os dias",
+    "formation": "Organização de Eventos – Instituto Brasil Eventos (2016)",
+    "experience": "7 anos + Eventos Lux (2016–2023)",
+    "certifications": ["Planejamento de Eventos Sociais"],
+    "specialties": ["Casamentos", "Festas corporativas", "Aniversários"]
+  },
+  {
+    "id": "thiago-rocha",
+    "name": "Thiago Rocha",
+    "rating": 3.2,
+    "city": "Porto Alegre",
+    "state": "RS",
+    "availability": "Segunda a sábado",
+    "formation": "Curso de Transporte Executivo – Autoescola Real (2013)",
+    "experience": "10 anos",
+    "certifications": ["CNH Categoria D", "Curso de Transporte de Passageiros"],
+    "specialties": ["Motorista executivo", "Transfer aeroportuário"]
+  },
+  {
+    "id": "vanessa-ribeiro",
+    "name": "Vanessa Ribeiro",
+    "rating": 4.3,
+    "city": "Recife",
+    "state": "PE",
+    "availability": "Terça a domingo",
+    "formation": "Cabeleireira – Escola de Beleza Pernambuco (2017)",
+    "experience": "6 anos",
+    "certifications": ["Colorimetria Avançada", "Visagismo"],
+    "specialties": ["Coloração", "Cortes femininos", "Penteados"]
+  }
+]

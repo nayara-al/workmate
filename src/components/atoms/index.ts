@@ -1,4 +1,5 @@
 import Button from "./Button";
+import Comment from "./Comment";
 import Input from "./Input";
 import Label from "./Label";
 import Logo from "./Logo";
@@ -15,7 +16,8 @@ const AtomComponent = {
   ServiceButton,
   Logo,
   RatingStars,
-  TextBox
+  TextBox,
+  Comment
 };
 
 export default AtomComponent;

@@ -1,9 +1,14 @@
 import AuthLink from "./AuthLink";
 import CategoryCard from "./CategoryCard";
 import FormField from "./FormField";
+import Gallery from "./Gallery";
 import NavBar from "./NavBar";
 import NavLink from "./NavLink";
+import OfferedServices from "./OfferedServices";
 import ProfessionalCard from "./ProfessionalCard";
+import ProfileActions from "./ProfileActions";
+import ProfileCard from "./ProfileCard";
+import ReviewSummary from "./ReviewSummary";
 import SearchInput from "./SearchInput";
 
 const MoleculeComponent = {
@@ -13,7 +18,12 @@ const MoleculeComponent = {
     NavLink,
     CategoryCard,
     ProfessionalCard,
-    SearchInput
+    SearchInput,
+    ReviewSummary,
+    OfferedServices,
+    Gallery,
+    ProfileActions,
+    ProfileCard
   };
   
   export default MoleculeComponent;
