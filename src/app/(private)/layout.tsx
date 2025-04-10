@@ -28,11 +28,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-      <div className="min-h-screen">
         <Header isAuthenticated={true}/>
-        <div className="bg-gray02 flex flex-col justify-center items-center">
+        <div className="bg-gray02 flex flex-col justify-center items-center h-[calc(100vh-4rem)]">
             {children}
-        </div>
         </div>
       </body>
     </html>

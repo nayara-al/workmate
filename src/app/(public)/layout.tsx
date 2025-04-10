@@ -29,7 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
       <Header isAuthenticated={false}/>
-      <div className="bg-gray02 flex flex-col">
+      <div className="bg-gray02 flex flex-col h-[calc(100vh-4rem)]">
         {children}  
       </div>
       </body>

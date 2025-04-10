@@ -6,7 +6,7 @@ export default async function Profile({ params }: { params: tParams }) {
   const { id } = await params;
 
   return (
-    <main className="flex w-full h-[calc(100vh-4rem)]">
+    <main className="flex w-full">
       <ProfileForm id={id} />
     </main>
   );
