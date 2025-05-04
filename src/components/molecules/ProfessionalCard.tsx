@@ -30,7 +30,7 @@ export default function ProfessionalCard({
           <p><strong>Formação:</strong> {formacao}</p>
           <p><strong>Exp.:</strong> {experiencia}</p>
           <p className="truncate max-w-[200px]">
-            <strong>Espec.:</strong> {especializacoes.join(', ')}
+            <strong>Espec.:</strong> {especializacoes?.join(', ') ?? 'Sem especializações'}
           </p>
         </div>
         <div className="flex justify-center mt-2 gap-4">
