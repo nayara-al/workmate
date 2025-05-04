@@ -1,4 +1,4 @@
-export interface IProfessional {
+/*export interface IProfessional {
     id: string;
     name: string;
     rating: number;
@@ -10,4 +10,17 @@ export interface IProfessional {
     certifications: string[];
     specialties: string[];
   }
-  
+  */
+
+  export interface IProfessional {
+    id: number;
+    nome: string;
+    nota: number;
+    cidade: string;
+    estado: string;
+    disponibilidade: string;
+    formacao: string;
+    experiencia: string;
+    certificacoes: string[];
+    especializacoes: string[];
+  }
