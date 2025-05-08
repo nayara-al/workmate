@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 import { useRouter } from 'next/navigation';
@@ -24,26 +25,27 @@ export default function NavBar({ isAuthenticated }: NavBarProps) {
         <MenuIcon />
         Catálogo
       </NavLink>
-      {isAuthenticated ? (
-        <>
-          <NavLink href="/meu-perfil">
-            <PersonIcon />
-            Meu perfil
-          </NavLink>
-          <button
-            className="text-primary flex items-center gap-1 hover:text-red-400"
-            onClick={handleLogout}
-          >
-            <LogoutIcon />
-            Sair
-          </button>
-        </>
-      ) : (
-        <NavLink href="/login">
-          <LoginIcon />
-          Entrar
-        </NavLink>
-      )}
     </nav>
   );
 }
+
+{/*isAuthenticated ? (
+  <>
+    <NavLink href="/meu-perfil">
+      <PersonIcon />
+      Meu perfil
+    </NavLink>
+    <button
+      className="text-primary flex items-center gap-1 hover:text-red-400"
+      onClick={handleLogout}
+    >
+      <LogoutIcon />
+      Sair
+    </button>
+  </>
+) : (
+  <NavLink href="/login">
+    <LoginIcon />
+    Entrar
+  </NavLink>
+)*/}
