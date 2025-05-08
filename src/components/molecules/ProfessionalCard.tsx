@@ -7,7 +7,7 @@ import AtomComponent from '../atoms';
 export default function ProfessionalCard({
   id,
   nome,
-  nota,
+  mediaNota,
   formacao,
   experiencia,
   especializacoes,
@@ -22,7 +22,7 @@ export default function ProfessionalCard({
         </div>
         <div className="flex-1">
           <h3 className="font-semibold text-secondary text-center">{nome}</h3>
-          <AtomComponent.RatingStars rating={nota} />
+          <AtomComponent.RatingStars rating={mediaNota} />
         </div>
       </div>
       <div>

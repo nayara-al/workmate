@@ -2,12 +2,16 @@
 
 import { useRouter } from 'next/navigation';
 
-export default function ServiceButton({ label }: { label: string }) {
+interface Props {
+  label: string;
+  subcategoriaId: number;
+}
+
+export default function ServiceButton({ label, subcategoriaId }: Props) {
   const router = useRouter();
 
   const handleClick = () => {
-    const encoded = encodeURIComponent(label.toLowerCase());
-    router.push(`/pesquisa?servico=${encoded}`);
+    router.push(`/pesquisa?subcategoriaId=${subcategoriaId}`);
   };
 
   return (

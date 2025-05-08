@@ -23,4 +23,5 @@
     experiencia: string;
     certificacoes: string[];
     especializacoes: string[];
+    mediaNota: number;
   }
