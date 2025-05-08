@@ -3,7 +3,7 @@ import api from './api';
 export async function fetchFilteredProfessionals(params: {
   nome?: string;
   localizacao?: string;
-  categoriaId?: number;
+  subcategoriaId?: number;
   notaMinima?: number;
 }) {
   try {
@@ -11,7 +11,7 @@ export async function fetchFilteredProfessionals(params: {
 
     if (params.nome) query.append('nome', params.nome);
     if (params.localizacao) query.append('localizacao', params.localizacao);
-    if (params.categoriaId !== undefined) query.append('categoriaId', params.categoriaId.toString());
+    if (params.subcategoriaId !== undefined) query.append('subcategoriaId', params.subcategoriaId.toString());
     if (params.notaMinima !== undefined) query.append('notaMinima', params.notaMinima.toString());
 
     const response = await api.get(`/api/Usuarios/filtrar?${query.toString()}`);
