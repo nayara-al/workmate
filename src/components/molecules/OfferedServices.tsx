@@ -1,31 +1,48 @@
-'use client';
+"use client";
 
-export default function OfferedServices() {
+import { IService } from "@/interface/IService";
+import { getServicesByUserId } from "@/service/professionalService";
+import { useEffect, useState } from "react";
+
+interface OfferedServicesProps {
+  userId: string;
+}
+
+export default function OfferedServices({ userId }: OfferedServicesProps) {
+  const [services, setServices] = useState<IService[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadServices() {
+      const data = await getServicesByUserId(userId);
+      setServices(data);
+      setLoading(false);
+    }
+
+    loadServices();
+  }, [userId]);
+
+  if (loading) {
+    return (
+      <div className="w-full mt-6 text-center text-gray-500">Carregando serviços...</div>
+    );
+  }
+
   return (
     <section className="bg-white border p-6 rounded shadow-md w-full max-w-224 mt-6">
       <h2 className="font-bold text-center text-lg mb-4 text-secondary">SERVIÇOS OFERECIDOS</h2>
-      <ul className="list-disc list-inside text-gray-800 space-y-2">
-        <li>
-          Instalação elétrica residencial e comercial — Padrão novo, fiação, quadros de distribuição. 
-          <span className="font-semibold"> (A partir de R$ 250,00)</span>
-        </li>
-        <li>
-          Troca e manutenção de disjuntores — Identificação e substituição de disjuntores defeituosos.
-          <span className="font-semibold"> (A partir de R$ 100,00)</span>
-        </li>
-        <li>
-          Instalação de luminárias e ventiladores de teto — Instalação segura e rápida.
-          <span className="font-semibold"> (A partir de R$ 80,00)</span>
-        </li>
-        <li>
-          Automação residencial — Configuração de lâmpadas inteligentes e automação de circuitos elétricos.
-          <span className="italic"> (Orçamento sob consulta)</span>
-        </li>
-        <li>
-          Manutenção elétrica preventiva e corretiva — Identificação de curtos-circuitos e reparos.
-          <span className="italic"> (Orçamento sob consulta)</span>
-        </li>
-      </ul>
+      {services.length === 0 ? (
+        <p className="text-center text-gray-500">Nenhum serviço cadastrado.</p>
+      ) : (
+        <ul className="list-disc list-inside text-gray-800 space-y-2">
+          {services.map((service) => (
+            <li key={service.id}>
+              <span className="font-medium">{service.titulo}</span> — {service.descricao}
+              <span className="font-semibold"> (A partir de R$ {service.preco.toFixed(2)})</span>
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
   );
 }

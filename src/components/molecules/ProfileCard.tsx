@@ -29,7 +29,6 @@ export default function ProfileCard({
 
   return (
     <aside className="bg-secondary text-primary w-80 h-[calc(100vh-4rem)] flex flex-col shadow-md">
-      {/* Parte de cima */}
       <section className="h-1/2 flex flex-col justify-center items-center text-center px-4 py-6">
         <h2 className="text-xl font-semibold mb-2">{name}</h2>
         <Image
@@ -44,7 +43,7 @@ export default function ProfileCard({
           {"★★★★★".split("").map((_, i) => (
             <span key={i}>{i < roundedRating ? "★" : "☆"}</span>
           ))}
-          <span className="text-white ml-2">{rating.toFixed(1)}</span>
+          <span className="text-white ml-2">{rating}</span>
         </div>
 
         <div className="text-sm text-white">
@@ -53,7 +52,6 @@ export default function ProfileCard({
         </div>
       </section>
 
-      {/* Parte de baixo */}
       <div className="h-1/2 bg-primary text-black rounded-t-lg px-4 py-3 text-xs overflow-y-auto">
         <h3 className="text-sm font-bold mb-2">INFORMAÇÕES PROFISSIONAIS</h3>
         <ul className="list-disc list-inside space-y-1">
