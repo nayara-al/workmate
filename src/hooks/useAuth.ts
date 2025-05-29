@@ -7,7 +7,7 @@ const TOKEN_COOKIE_KEY = 'token';
 
 interface AuthUser {
   usuarioId: string;
-  nome?: string; // opcional, se quiser incluir depois
+  nome?: string;
 }
 
 export function useAuth() {
