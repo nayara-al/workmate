@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
 import { useEffect, useState } from "react";
@@ -13,18 +14,22 @@ interface MyProfileFormProps {
 export default function MyProfileForm({ user }: MyProfileFormProps) {
   const [userData, setUserData] = useState<IProfessional | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [reloadKey, setReloadKey] = useState(0);
+
+  const userId = user?.usuarioId.toString() || "";
 
   useEffect(() => {
-    async function loadUserData() {
-      if (!user) return;
-
-      const data = await fetchUsuarioById(user.usuarioId.toString());
-      setUserData(data);
-      setLoading(false);
-    }
-
     loadUserData();
-  }, [user]);
+  }, [userId]);
+
+  async function loadUserData() {
+    if (!userId) return;
+
+    const data = await fetchUsuarioById(userId);
+    setUserData(data);
+    setLoading(false);
+  }
 
   if (loading || !userData) {
     return (
@@ -37,8 +42,27 @@ export default function MyProfileForm({ user }: MyProfileFormProps) {
   return (
     <div className="flex flex-col justify-center items-center w-full flex-1 p-8">
       <MoleculeComponent.ReviewSummary />
-      <MoleculeComponent.OfferedServices userId={user.usuarioId.toString()} />
+
+      <MoleculeComponent.OfferedServices userId={userId} reloadKey={reloadKey} />
+
+      <div className="text-center mt-6">
+        <button
+          onClick={() => setShowModal(true)}
+          className="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark"
+        >
+          Cadastrar novo serviço
+        </button>
+      </div>
+
+      {showModal && (
+        <MoleculeComponent.AddServiceModal
+          onServiceAdded={() => setReloadKey((prev) => prev + 1)}
+          onClose={() => setShowModal(false)}
+        />
+      )}
+
       <MoleculeComponent.Gallery />
+
       <MoleculeComponent.ProfileActions
         email={userData.email}
         telefone={userData.telefone}
