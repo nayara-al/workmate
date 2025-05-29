@@ -12,7 +12,7 @@ type TextBoxProps = {
         value={value}
         placeholder={placeholder}
         onChange={onChange}
-        className="w-full p-2 border border-gray02 rounded bg-gray02 text-gray01 focus:outline-none focus:ring-2 focus:ring-primary text-sm resize-y min-h-[120px]"
+        className="w-full p-2 border border-gray02 rounded bg-gray-50 text-black focus:outline-none focus:ring-2 focus:ring-primary text-sm resize-y min-h-[120px]"
       />
     );
   }

@@ -11,7 +11,7 @@ export default function ReviewSummary() {
 
       <div className="mt-2 space-y-1">
         <AtomComponent.Comment
-          text="Carlos fez um excelente trabalho na instalação do meu quadro de distribuição. Rápido, organizado e muito educado!"
+          text="Fez um excelente trabalho. Rápido, organizado e muito educado!"
           author="Ana P."
         />
         <AtomComponent.Comment

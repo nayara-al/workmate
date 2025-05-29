@@ -1,10 +1,10 @@
-// src/components/organism/ProfileForm.tsx
 "use client";
 
 import { useEffect, useState } from "react";
 import MoleculeComponent from "../molecules";
-import professionals from "@/json/professional.json";
+import { fetchUsuarioById } from "@/service/professionalService";
 import { IProfessional } from "@/interface/IProfessional";
+import { useSearchParams } from "next/navigation";
 
 interface ProfileFormProps {
   id: string;
@@ -12,11 +12,17 @@ interface ProfileFormProps {
 
 export default function ProfileForm({ id }: ProfileFormProps) {
   const [professional, setProfessional] = useState<IProfessional | null>(null);
+  const searchParams = useSearchParams();
+  const mediaNota = Number(searchParams.get("mediaNota") || 0);
 
   useEffect(() => {
-    setProfessional(professionals.find((prof) => prof.id === id) || null);
+    async function loadData() {
+      const prof = await fetchUsuarioById(id);
+      setProfessional(prof);
+    }
+
+    loadData();
   }, [id]);
-  
 
   if (!professional) {
     return (
@@ -28,12 +34,27 @@ export default function ProfileForm({ id }: ProfileFormProps) {
 
   return (
     <main className="flex w-full">
-      <MoleculeComponent.ProfileCard {...professional} />
+      <MoleculeComponent.ProfileCard
+        name={professional.nome}
+        city={professional.cidade}
+        state={professional.estado}
+        availability={professional.disponibilidade}
+        formation={professional.formacao}
+        experience={professional.experiencia}
+        rating={mediaNota}
+        certifications={[]} 
+        specialties={[]} 
+      />
       <div className="flex flex-col justify-start items-center w-full h-full p-8">
         <MoleculeComponent.ReviewSummary />
-        <MoleculeComponent.OfferedServices />
+        <MoleculeComponent.OfferedServices userId={id} />
         <MoleculeComponent.Gallery />
-        <MoleculeComponent.ProfileActions />
+        <MoleculeComponent.ProfileActions
+          email={professional.email}
+          telefone={professional.telefone}
+          portifolio={professional.portifolio}
+        />
+
       </div>
     </main>
   );

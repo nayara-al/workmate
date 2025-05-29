@@ -16,7 +16,7 @@ export default function Button({
   type = "button"
 }: ButtonProps) {
   // Definir classes base + variantes
-  const baseStyles = "py-2 px-4 rounded font-medium transition-opacity";
+  const baseStyles = "py-2 px-4 rounded font-medium transition-opacity cursor-pointer";
   const variantStyles = {
     primary: "bg-primary text-white hover:opacity-80 w-full",
     secondary: "bg-secondary text-white hover:opacity-80 w-full",

@@ -11,7 +11,7 @@ export default function SearchInput() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (query.trim()) {
-          router.push(`/pesquisa?nome=${encodeURIComponent(query)}`);
+          router.push(`/pesquisa?subcategoriaNome=${encodeURIComponent(query)}`);
         }
       };
   return (
@@ -19,7 +19,7 @@ export default function SearchInput() {
       <SearchIcon className="relative top-3 left-8 transform -translate-y-1/2 text-gray-400" />
       <input
         type="text"
-        placeholder="Pesquisar"
+        placeholder="O que está procurando?"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         maxLength={64}

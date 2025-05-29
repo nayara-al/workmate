@@ -1,0 +1,31 @@
+export const localizacoes = {
+  estados: [
+    { sigla: "AC", nome: "Acre", cidades: ["Rio Branco", "Cruzeiro do Sul", "Sena Madureira"] },
+    { sigla: "AL", nome: "Alagoas", cidades: ["Maceió", "Arapiraca", "Palmeira dos Índios"] },
+    { sigla: "AM", nome: "Amazonas", cidades: ["Manaus", "Parintins", "Itacoatiara"] },
+    { sigla: "AP", nome: "Amapá", cidades: ["Macapá", "Santana", "Laranjal do Jari"] },
+    { sigla: "BA", nome: "Bahia", cidades: ["Salvador", "Feira de Santana", "Vitória da Conquista"] },
+    { sigla: "CE", nome: "Ceará", cidades: ["Fortaleza", "Juazeiro do Norte", "Sobral"] },
+    { sigla: "DF", nome: "Distrito Federal", cidades: ["Brasília"] },
+    { sigla: "ES", nome: "Espírito Santo", cidades: ["Vitória", "Vila Velha", "Serra"] },
+    { sigla: "GO", nome: "Goiás", cidades: ["Goiânia", "Aparecida de Goiânia", "Anápolis"] },
+    { sigla: "MA", nome: "Maranhão", cidades: ["São Luís", "Imperatriz", "Caxias"] },
+    { sigla: "MG", nome: "Minas Gerais", cidades: ["Belo Horizonte", "Uberlândia", "Contagem"] },
+    { sigla: "MS", nome: "Mato Grosso do Sul", cidades: ["Campo Grande", "Dourados", "Três Lagoas"] },
+    { sigla: "MT", nome: "Mato Grosso", cidades: ["Cuiabá", "Várzea Grande", "Rondonópolis"] },
+    { sigla: "PA", nome: "Pará", cidades: ["Belém", "Santarém", "Ananindeua"] },
+    { sigla: "PB", nome: "Paraíba", cidades: ["João Pessoa", "Campina Grande", "Patos"] },
+    { sigla: "PE", nome: "Pernambuco", cidades: ["Recife", "Olinda", "Caruaru"] },
+    { sigla: "PI", nome: "Piauí", cidades: ["Teresina", "Parnaíba", "Picos"] },
+    { sigla: "PR", nome: "Paraná", cidades: ["Curitiba", "Londrina", "Maringá"] },
+    { sigla: "RJ", nome: "Rio de Janeiro", cidades: ["Rio de Janeiro", "Niterói", "Duque de Caxias"] },
+    { sigla: "RN", nome: "Rio Grande do Norte", cidades: ["Natal", "Mossoró", "Parnamirim"] },
+    { sigla: "RO", nome: "Rondônia", cidades: ["Porto Velho", "Ji-Paraná", "Ariquemes"] },
+    { sigla: "RR", nome: "Roraima", cidades: ["Boa Vista", "Rorainópolis", "Caracaraí"] },
+    { sigla: "RS", nome: "Rio Grande do Sul", cidades: ["Porto Alegre", "Caxias do Sul", "Pelotas"] },
+    { sigla: "SC", nome: "Santa Catarina", cidades: ["Florianópolis", "Joinville", "Blumenau"] },
+    { sigla: "SE", nome: "Sergipe", cidades: ["Aracaju", "Lagarto", "Itabaiana"] },
+    { sigla: "SP", nome: "São Paulo", cidades: ["São Paulo", "Campinas", "Santos"] },
+    { sigla: "TO", nome: "Tocantins", cidades: ["Palmas", "Araguaína", "Gurupi"] }
+  ]
+}

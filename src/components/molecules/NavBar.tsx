@@ -6,15 +6,20 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
 import LoginIcon from "@mui/icons-material/Login";
+import { isAuthenticated, logout } from '@/service/authService';
+import { useState, useEffect } from 'react';
 
-type NavBarProps = {
-  isAuthenticated: boolean;
-};
-
-export default function NavBar({ isAuthenticated }: NavBarProps) {
+export default function NavBar() {
   const router = useRouter();
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    setAuth(isAuthenticated());
+  }, []);
 
   const handleLogout = () => {
+    logout();
+    setAuth(false);
     router.push('/login');
   };
 
@@ -24,7 +29,8 @@ export default function NavBar({ isAuthenticated }: NavBarProps) {
         <MenuIcon />
         Catálogo
       </NavLink>
-      {isAuthenticated ? (
+
+      {auth ? (
         <>
           <NavLink href="/meu-perfil">
             <PersonIcon />

@@ -11,7 +11,7 @@ export default function Header({ isAuthenticated }: HeaderProps) {
       <AtomComponent.Logo />
       <div className="flex px-4 gap-4">
         {isAuthenticated ?(<MoleculeComponent.SearchInput />):null}
-        <MoleculeComponent.NavBar isAuthenticated={isAuthenticated} />
+        <MoleculeComponent.NavBar />
       </div>
     </header>
   );
