@@ -9,9 +9,9 @@ import { ISubcategoria } from "@/interface/ICategoria";
 export default function Filter() {
   const router = useRouter();
 
-  const [estadoSelecionado, setEstadoSelecionado] = useState("SE");
-  const [cidadeSelecionada, setCidadeSelecionada] = useState("Aracaju");
-  const [notaMinima, setNotaMinima] = useState("1");
+  const [estadoSelecionado, setEstadoSelecionado] = useState("");
+  const [cidadeSelecionada, setCidadeSelecionada] = useState("");
+  const [notaMinima, setNotaMinima] = useState("");
   const [subcategoriaId, setSubcategoriaId] = useState("");
   const [subcategorias, setSubcategorias] = useState<ISubcategoria[]>([]);
 

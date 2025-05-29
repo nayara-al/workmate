@@ -10,24 +10,24 @@ export default function SearchResults() {
   const searchParams = useSearchParams();
   const nome = searchParams.get('nome') ?? '';
   const localizacao = searchParams.get('localizacao') ?? '';
-  const subcategoriaId = searchParams.get('subcategoriaId');
+  const subcategoriaNome = searchParams.get('subcategoriaNome');
   const notaMinima = searchParams.get('notaMinima');
 
   const [profissionais, setProfissionais] = useState<IProfessional[]>([]);
 
   useEffect(() => {
-    const subcategoriaIdParsed = subcategoriaId ? parseInt(subcategoriaId) : undefined;
+    const subcategoriaNomeParsed = subcategoriaNome ? parseInt(subcategoriaNome) : undefined;
     const notaMinimaParsed = notaMinima ? parseFloat(notaMinima) : undefined;
 
     fetchFilteredProfessionals({
       nome,
       localizacao,
-      subcategoriaId: subcategoriaIdParsed,
+      subcategoriaNome: subcategoriaNomeParsed,
       notaMinima: notaMinimaParsed,
     })
       .then((res) => setProfissionais(res))
       .catch((err) => console.error('Erro ao buscar profissionais:', err));
-  }, [nome, localizacao, subcategoriaId, notaMinima]);
+  }, [nome, localizacao, subcategoriaNome, notaMinima]);
 
   return (
     <main className="flex flex-col w-3/4 justify-start items-start p-6 gap-8">
