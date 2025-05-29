@@ -32,7 +32,6 @@ export default function FormField({
         />
       ) : (
         <AtomComponent.Select
-          label={label}
           id={id}
           options={options!}
           value={value}

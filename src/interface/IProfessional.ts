@@ -13,4 +13,5 @@
     especializacoes: string[];
     mediaNota: number;
     portifolio?: string | null
+    tipo?: 'Cliente' | 'Prestador';
   }

@@ -20,6 +20,8 @@ export default function CadastroTrabalhadorForm() {
     formacao: '',
   });
 
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     localStorage.setItem('cadastroDados', JSON.stringify(formData));
   }, [formData]);
@@ -27,7 +29,7 @@ export default function CadastroTrabalhadorForm() {
   function handleChange(field: keyof CadastroTrabalhadorFormData, value: string) {
     setFormData(prev => {
       const updated = { ...prev, [field]: value };
-      localStorage.setItem('cadastroDadosEtapa2', JSON.stringify(updated)); // salva na chave certa
+      localStorage.setItem('cadastroDadosEtapa2', JSON.stringify(updated));
       return updated;
     });
   }
@@ -35,12 +37,15 @@ export default function CadastroTrabalhadorForm() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
+    setLoading(true); // inicia loading
+
     try {
       const etapa1Str = localStorage.getItem('cadastroDadosEtapa1');
       const etapa2Str = localStorage.getItem('cadastroDadosEtapa2');
 
       if (!etapa1Str || !etapa2Str) {
         alert('Dados da primeira ou segunda etapa não encontrados.');
+        setLoading(false);
         return;
       }
 
@@ -63,13 +68,13 @@ export default function CadastroTrabalhadorForm() {
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Erro desconhecido';
       alert(`Erro ao cadastrar: ${errorMessage}`);
+    } finally {
+      setLoading(false); // termina loading
     }
   }
 
-
   return (
     <form className="w-full max-w-sm" onSubmit={handleSubmit}>
-
       <div className="w-full mb-6">
         <AtomComponent.Label htmlFor="experiencia">Especialização</AtomComponent.Label>
         <AtomComponent.TextBox
@@ -100,11 +105,10 @@ export default function CadastroTrabalhadorForm() {
       </div>
 
       <div className="w-full">
-        <AtomComponent.Button variant="primary" type="submit">
-          Cadastrar
+        <AtomComponent.Button variant="primary" type="submit" disabled={loading}>
+          {loading ? <AtomComponent.LoadingSpinner /> : 'Cadastrar'}
         </AtomComponent.Button>
       </div>
     </form>
-
   );
 }

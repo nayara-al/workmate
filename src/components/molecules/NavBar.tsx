@@ -1,3 +1,4 @@
+// components/molecules/NavBar.tsx
 'use client';
 
 import { useRouter } from 'next/navigation';
@@ -6,22 +7,31 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
 import LoginIcon from "@mui/icons-material/Login";
-import { isAuthenticated, logout } from '@/service/authService';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import { IUser } from '@/interface/IUser';
 
-export default function NavBar() {
+interface NavBarProps {
+  user?: IUser | null;
+}
+
+export default function NavBar({ user }: NavBarProps) {
   const router = useRouter();
-  const [auth, setAuth] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setAuth(isAuthenticated());
+    setMounted(true);
   }, []);
 
   const handleLogout = () => {
-    logout();
-    setAuth(false);
-    router.push('/login');
+    Cookies.remove("token");
+    Cookies.remove("user");
+    router.push("/login");
   };
+
+  if (!mounted) return null;
+
+  const isAuthenticated = !!user;
 
   return (
     <nav className="flex items-center gap-4">
@@ -30,7 +40,7 @@ export default function NavBar() {
         Catálogo
       </NavLink>
 
-      {auth ? (
+      {isAuthenticated ? (
         <>
           <NavLink href="/meu-perfil">
             <PersonIcon />

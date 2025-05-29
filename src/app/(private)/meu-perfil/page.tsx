@@ -1,16 +1,22 @@
-import MoleculeComponent from "@/components/molecules"
+// app/meu-perfil/page.tsx ou components/MyProfile.tsx (Server Component)
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+import MyProfileForm from '@/components/organism/MyProfileForm';
 
-export default function MyProfile() {
+export default async function MyProfile() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get('token')?.value;
+  const userData = cookieStore.get('user')?.value;
+
+  if (!token || !userData) {
+    redirect('/login');  // redireciona no servidor se não autenticado
+  }
+
+  const user = JSON.parse(userData);
+
   return (
     <main className="flex w-full h-[calc(100vh-4rem)]">
-     
-      
-      <div className="flex flex-col justify-center items-center w-full flex-1 p-8">
-        <MoleculeComponent.ReviewSummary />
-        <MoleculeComponent.OfferedServices />
-        <MoleculeComponent.Gallery />
-        <MoleculeComponent.ProfileActions />
-      </div>
+      <MyProfileForm user={user} />
     </main>
-  )
+  );
 }

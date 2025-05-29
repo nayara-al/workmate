@@ -29,22 +29,17 @@ export default function CadastroForm() {
       [field]: value,
       ...(field === 'estado' ? { cidade: '' } : {})
     }));
-    console.log(formData.nome)
   }
 
-  // Tipagem do SelectOption
 type SelectOption = { value: string; label: string };
 
-// Construindo as opções de estados
 const estadoOptions: SelectOption[] = localizacoes.estados.map(estado => ({
-  value: estado.sigla,  // SIGLA será enviada
-  label: estado.nome    // Nome completo exibido
+  value: estado.sigla,  
+  label: estado.nome    
 }));
 
-// Cidades dependem da sigla agora (formData.estado é a sigla)
 const cidadesOptions: SelectOption[] = (() => {
   if (!formData.estado) return [];
-  // Encontrar o estado pelo sigla selecionada no formData
   const estadoSelecionado = localizacoes.estados.find(
     (e) => e.sigla === formData.estado
   );
@@ -58,8 +53,8 @@ const cidadesOptions: SelectOption[] = (() => {
 const tipoUsuarioRaw = ['Cliente', 'Prestador'];
 
   const tipoUsuarioOptions: SelectOption[] = tipoUsuarioRaw.map(option => ({
-  value: option.toLowerCase(), // ex: 'cliente', 'prestador'
-  label: option,               // ex: 'Cliente', 'Prestador'
+  value: option.toLowerCase(), 
+  label: option,               
 }));
 
   function onChangeHandler(field: keyof IFormData) {
@@ -74,17 +69,15 @@ const tipoUsuarioRaw = ['Cliente', 'Prestador'];
     nome: data.nome,
     email: data.email,
     password: data.password,
-    tipoUsuario: data.tipoUsuario as 'Cliente' | 'Prestador', // pode forçar o cast, mas garanta que o valor está correto
+    tipoUsuario: data.tipoUsuario as 'Cliente' | 'Prestador', 
     estado: data.estado,
     cidade: data.cidade,
-    // demais campos opcionais podem ficar ausentes aqui
   };
 }
 
 
 async function handleSubmit(e: React.FormEvent) {
   e.preventDefault();
-  console.log(formData.nome)
 
   if (formData.tipoUsuario.toLowerCase() === 'cliente') {
     try {
@@ -154,8 +147,6 @@ async function handleSubmit(e: React.FormEvent) {
         options={cidadesOptions}
         value={formData.cidade}
         onChange={onChangeHandler('cidade')}
-        // Desabilita cidade enquanto não escolher estado
-        // Você pode implementar desabilitar no seu AtomComponent.Select se desejar
       />
 
       <MoleculeComponent.FormField

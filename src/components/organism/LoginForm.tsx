@@ -2,25 +2,61 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import AtomComponents from '../atoms';
 import { login } from '@/service/authService';
+import { fetchUsuarioById, verificarEspecialidadesPrestador } from '@/service/professionalService';
+import Cookies from "js-cookie";
 
 export default function LoginForm() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [erro, setErro] = useState('');
-  const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
+    setErro('');
+    setLoading(true);
+
     const success = await login({ userName, password });
 
-    if (success) {
-      router.push('/catalogo');
-    } else {
+    if (!success) {
       setErro('Usuário ou password inválidos.');
+      setLoading(false);
+      return;
     }
+
+    try {
+      const userCookie = Cookies.get('user');
+      const parsedUser = userCookie ? JSON.parse(userCookie) : null;
+
+      if (!parsedUser?.usuarioId) {
+        throw new Error('ID do usuário não encontrado no cookie.');
+      }
+
+      const usuario = await fetchUsuarioById(parsedUser.usuarioId);
+
+      if (!usuario) {
+        throw new Error('Erro ao buscar dados do usuário.');
+      }
+
+      if (usuario && usuario.tipo?.toLowerCase() === 'prestador') {
+        const possuiEspecialidades = await verificarEspecialidadesPrestador(usuario.id);
+
+        if (!possuiEspecialidades) {
+          window.location.href = '/associar-especialidade';
+          return;
+        }
+      }
+
+      window.location.href = '/meu-perfil';
+
+    } catch (error) {
+      console.error('Erro durante redirecionamento após login:', error);
+      setErro('Erro ao validar o usuário. Tente novamente.');
+    }
+
+    setLoading(false);
   }
 
   return (
@@ -56,7 +92,13 @@ export default function LoginForm() {
         <a href="#" className="hover:underline">Esqueci a password</a>
       </div>
 
-      <AtomComponents.Button variant="primary" type="submit">Entrar</AtomComponents.Button>
+      {loading ? (
+        <div className="flex justify-center">
+          <AtomComponents.LoadingSpinner />
+        </div>
+      ) : (
+        <AtomComponents.Button variant="primary" type="submit">Entrar</AtomComponents.Button>
+      )}
 
       <p className="text-gray01 text-sm text-center mt-4">
         Ainda não tem conta?{' '}

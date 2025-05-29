@@ -4,25 +4,24 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { IProfessional } from '@/interface/IProfessional';
 import MoleculeComponent from '.';
-import { fetchFilteredProfessionals } from '@/service/professionalService';
+import { fetchFilteredProfessionals } from '@/service/filterService';
 
 export default function SearchResults() {
   const searchParams = useSearchParams();
   const nome = searchParams.get('nome') ?? '';
   const localizacao = searchParams.get('localizacao') ?? '';
-  const subcategoriaNome = searchParams.get('subcategoriaNome');
+  const subcategoriaNome = searchParams.get('subcategoriaNome') ?? '';
   const notaMinima = searchParams.get('notaMinima');
 
   const [profissionais, setProfissionais] = useState<IProfessional[]>([]);
 
   useEffect(() => {
-    const subcategoriaNomeParsed = subcategoriaNome ? parseInt(subcategoriaNome) : undefined;
     const notaMinimaParsed = notaMinima ? parseFloat(notaMinima) : undefined;
 
     fetchFilteredProfessionals({
       nome,
       localizacao,
-      subcategoriaNome: subcategoriaNomeParsed,
+      subcategoriaNome: subcategoriaNome,
       notaMinima: notaMinimaParsed,
     })
       .then((res) => setProfissionais(res))

@@ -8,10 +8,10 @@ type NavLinkProps = {
 
 export default function NavLink({ href, children }: NavLinkProps) {
   return (
-    <AtomComponent.Button variant="primary" className="min-w-64 cursor-pointer">
-      <Link href={href} className="text-secondary hover:text-black flex items-center justify-center gap-1">
+    <Link href={href} className="">
+      <AtomComponent.Button variant="primary" className="min-w-64 cursor-pointer flex items-center justify-center gap-1 text-secondary hover:text-black ">
         {children}
-      </Link>
-    </AtomComponent.Button>
+      </AtomComponent.Button>
+    </Link>
   );
 }

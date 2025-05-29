@@ -4,7 +4,7 @@ export interface ICategoria {
 }
 
 export interface ISubcategoria {
-  id: number;
+  id: string;
   nome: string;
   categoriaNome: string
 }
