@@ -1,29 +1,27 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
+import { useEffect, useState } from "react";
 import { IService } from "@/interface/IService";
 import { getServicesByUserId } from "@/service/professionalService";
-import { useEffect, useState } from "react";
-import AddServiceModal from "./AddServiceModal";
 
 interface OfferedServicesProps {
   userId: string;
+  reloadKey?: number;
 }
 
-export default function OfferedServices({ userId }: OfferedServicesProps) {
+export default function OfferedServices({ userId, reloadKey }: OfferedServicesProps) {
   const [services, setServices] = useState<IService[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
-
-  async function loadServices() {
-    const data = await getServicesByUserId(userId);
-    setServices(data);
-    setLoading(false);
-  }
 
   useEffect(() => {
-    loadServices();
-  }, [userId]);
+    async function loadServices() {
+      setLoading(true);
+      const data = await getServicesByUserId(userId);
+      setServices(data);
+      setLoading(false);
+    }
+    if (userId) loadServices();
+  }, [userId, reloadKey]);
 
   return (
     <section className="bg-white border p-6 rounded shadow-md w-full max-w-224 mt-6 relative">
@@ -42,22 +40,6 @@ export default function OfferedServices({ userId }: OfferedServicesProps) {
             </li>
           ))}
         </ul>
-      )}
-
-      <div className="text-center mt-6">
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark"
-        >
-          Cadastrar novo serviço
-        </button>
-      </div>
-
-      {showModal && (
-        <AddServiceModal
-          onServiceAdded={loadServices}
-          onClose={() => setShowModal(false)}
-        />
       )}
     </section>
   );
