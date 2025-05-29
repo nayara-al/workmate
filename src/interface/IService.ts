@@ -1,8 +1,16 @@
 export interface IService {
-    id: number;
-    titulo: string;
-    descricao: string;
-    preco: number;
-    localizacao: string;
-    dataCriacao: string;
-  }
+  id: string;
+  titulo: string;
+  descricao: string;
+  preco: number;
+  subcategoriaId: string;
+  prestadorId: string;
+}
+
+export interface IServiceRequest {
+  titulo: string;
+  descricao: string;
+  preco: number;
+  subcategoriaId: string;
+  prestadorId: string;
+}

@@ -7,6 +7,7 @@ import RatingStars from "./RatingStars";
 import Select from "./Select";
 import ServiceButton from "./ServiceButton";
 import TextBox from "./TextBox";
+import LoadingSpinner from "./LoadinSpinner";
 
 const AtomComponent = {
   Button,
@@ -17,7 +18,8 @@ const AtomComponent = {
   Logo,
   RatingStars,
   TextBox,
-  Comment
+  Comment,
+  LoadingSpinner
 };
 
 export default AtomComponent;

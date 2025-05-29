@@ -1,8 +1,8 @@
-export interface IUser {
+export interface ILoginResponse {
+  id: string;
   token: string;
-  usuarioId: number;
-  nome: string;
-  tipo: string;
+  refreshToken: string;
+  expiration: string;
 }
 
 export type LoginRequest = {
@@ -23,3 +23,8 @@ export interface RegisterRequest {
   formacao?: string;
   experiencia?: string;
 }
+
+export interface IUser  {
+    usuarioId: string;
+    nome?: string;
+  }

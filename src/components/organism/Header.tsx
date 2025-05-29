@@ -1,17 +1,19 @@
+// components/organism/Header.tsx
+import { IUser } from "@/interface/IUser";
 import AtomComponent from "../atoms";
 import MoleculeComponent from "../molecules";
 
-type HeaderProps = {
-  isAuthenticated: boolean;
-};
+interface HeaderProps {
+  user?: IUser | null;
+}
 
-export default function Header({ isAuthenticated }: HeaderProps) {
+export default function Header({ user }: HeaderProps) {
   return (
     <header className="flex justify-between items-center px-4 h-16 bg-secondary shadow-md">
       <AtomComponent.Logo />
       <div className="flex px-4 gap-4">
-        {isAuthenticated ?(<MoleculeComponent.SearchInput />):null}
-        <MoleculeComponent.NavBar />
+        <MoleculeComponent.SearchInput />
+        <MoleculeComponent.NavBar user={user} />
       </div>
     </header>
   );

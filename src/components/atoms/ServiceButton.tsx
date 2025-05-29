@@ -4,14 +4,14 @@ import { useRouter } from 'next/navigation';
 
 interface Props {
   label: string;
-  subcategoriaId: number;
+  subcategoriaNome: string;
 }
 
-export default function ServiceButton({ label, subcategoriaId }: Props) {
+export default function ServiceButton({ label, subcategoriaNome }: Props) {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/pesquisa?subcategoriaId=${subcategoriaId}`);
+    router.push(`/pesquisa?subcategoriaNome=${subcategoriaNome}`);
   };
 
   return (

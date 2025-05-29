@@ -1,29 +1,6 @@
 import { IProfessional } from '@/interface/IProfessional';
 import api from './api';
-import { IService } from '@/interface/IService';
-
-export async function fetchFilteredProfessionals(params: {
-  nome?: string;
-  localizacao?: string;
-  subcategoriaNome?: number;
-  notaMinima?: number;
-}) {
-  try {
-    const query = new URLSearchParams();
-
-    if (params.nome) query.append('nome', params.nome);
-    if (params.localizacao) query.append('localizacao', params.localizacao);
-    if (params.subcategoriaNome !== undefined) query.append('subcategoriaNome', params.subcategoriaNome.toString());
-    if (params.notaMinima !== undefined) query.append('notaMinima', params.notaMinima.toString());
-
-    const response = await api.get(`/api/Usuarios/filtrar?${query.toString()}`);
-
-    return response.data;
-  } catch (error) {
-    console.error('Erro ao buscar profissionais:', error);
-    return [];
-  }
-}
+import { IService, IServiceRequest } from '@/interface/IService';
 
 export async function fetchUsuarioById(id: string): Promise<IProfessional | null> {
   try {
@@ -42,5 +19,27 @@ export async function getServicesByUserId(userId: string): Promise<IService[]> {
   } catch (error) {
     console.error("Erro ao buscar serviços:", error);
     return [];
+  }
+}
+
+export async function verificarEspecialidadesPrestador(usuarioId: number): Promise<boolean> {
+  try {
+    const res = await api.get(`/api/Usuarios/${usuarioId}/especialidades`);
+    const especialidades = res.data;
+
+    return Array.isArray(especialidades) && especialidades.length > 0;
+  } catch (error) {
+    console.error('Erro ao verificar especialidades do prestador:', error);
+    return false;
+  }
+}
+
+export async function createService(data: IServiceRequest): Promise<boolean> {
+  try {
+    await api.post('/api/Servicos', data);
+    return true;
+  } catch (error) {
+    console.error("Erro ao cadastrar serviço:", error);
+    return false;
   }
 }

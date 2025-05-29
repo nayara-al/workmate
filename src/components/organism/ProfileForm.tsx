@@ -5,6 +5,7 @@ import MoleculeComponent from "../molecules";
 import { fetchUsuarioById } from "@/service/professionalService";
 import { IProfessional } from "@/interface/IProfessional";
 import { useSearchParams } from "next/navigation";
+import AtomComponent from "../atoms";
 
 interface ProfileFormProps {
   id: string;
@@ -26,8 +27,8 @@ export default function ProfileForm({ id }: ProfileFormProps) {
 
   if (!professional) {
     return (
-      <div className="flex justify-center items-center w-full">
-        <p>Carregando informações do profissional...</p>
+      <div className="flex justify-center items-center w-full h-96">
+        <AtomComponent.LoadingSpinner />
       </div>
     );
   }
@@ -54,7 +55,6 @@ export default function ProfileForm({ id }: ProfileFormProps) {
           telefone={professional.telefone}
           portifolio={professional.portifolio}
         />
-
       </div>
     </main>
   );

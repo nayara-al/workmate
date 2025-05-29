@@ -12,7 +12,7 @@ export default function Filter() {
   const [estadoSelecionado, setEstadoSelecionado] = useState("");
   const [cidadeSelecionada, setCidadeSelecionada] = useState("");
   const [notaMinima, setNotaMinima] = useState("");
-  const [subcategoriaId, setSubcategoriaId] = useState("");
+  const [subcategoriaNome, setSubcategoriaNome] = useState("");
   const [subcategorias, setSubcategorias] = useState<ISubcategoria[]>([]);
 
   const estados = filtersData.estados;
@@ -38,8 +38,8 @@ export default function Filter() {
       searchParams.set("localizacao", estadoSelecionado); 
     }
   
-    if (subcategoriaId && subcategoriaId !== "") {
-      searchParams.set("subcategoriaId", subcategoriaId);
+    if (subcategoriaNome && subcategoriaNome !== "") {
+      searchParams.set("subcategoriaNome", subcategoriaNome);
     }
   
     if (notaMinima && notaMinima !== "") {
@@ -63,8 +63,8 @@ export default function Filter() {
 
       <h3 className="bg-primary text-secondary font-bold text-center py-2 rounded">Classificação</h3>
       <select
-        value={subcategoriaId}
-        onChange={(e) => setSubcategoriaId(e.target.value)}
+        value={subcategoriaNome}
+        onChange={(e) => setSubcategoriaNome(e.target.value)}
         className="w-full mt-2 border rounded p-2 text-black"
       >
         <option value="">Selecione uma subcategoria</option>

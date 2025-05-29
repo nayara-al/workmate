@@ -19,7 +19,7 @@ export default function CategoryCard({ title, services }: CategoryCardProps) {
           <AtomComponents.ServiceButton
             key={`${service.id}-${service.nome}`}
             label={service.nome}
-            subcategoriaId={service.id}
+            subcategoriaNome={service.nome}
           />
         ))}
       </div>
