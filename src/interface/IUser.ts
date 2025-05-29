@@ -28,3 +28,9 @@ export interface IUser  {
     usuarioId: string;
     nome?: string;
   }
+
+  export interface IReviewRequest {
+  nota: number;
+  comentario: string;
+  servicoId: string;
+}

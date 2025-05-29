@@ -20,8 +20,12 @@ export default function CadastroForm() {
     estado: '',
     cidade: '',
     tipoUsuario: '',
-    fotoPerfil: ''
+    fotoPerfil: '',
+    disponibilidade: '',
+    formacao: '',
+    experiencia: '',
   });
+
 
   function handleChange(field: keyof IFormData, value: string) {
     setFormData(prev => ({
@@ -65,15 +69,20 @@ const tipoUsuarioRaw = ['Cliente', 'Prestador'];
 
   function mapFormDataToRegisterRequest(data: IFormData): RegisterRequest {
   return {
-    userName: data.userName, 
+    userName: data.userName,
     nome: data.nome,
     email: data.email,
     password: data.password,
-    tipoUsuario: data.tipoUsuario as 'Cliente' | 'Prestador', 
+    tipoUsuario: data.tipoUsuario as 'Cliente' | 'Prestador',
     estado: data.estado,
     cidade: data.cidade,
+    fotoPerfil: data.fotoPerfil || '', // ou valor default
+    disponibilidade: data.disponibilidade || '',
+    formacao: data.formacao || '',
+    experiencia: data.experiencia || ''
   };
 }
+
 
 
 async function handleSubmit(e: React.FormEvent) {
@@ -81,7 +90,12 @@ async function handleSubmit(e: React.FormEvent) {
 
   if (formData.tipoUsuario.toLowerCase() === 'cliente') {
     try {
-      const registerData = mapFormDataToRegisterRequest(formData);
+      const registerData = mapFormDataToRegisterRequest({
+        ...formData,
+        disponibilidade: '',
+        formacao: '',
+        experiencia: ''
+      });
       await registerUser(registerData);
 
       localStorage.setItem('cadastroCliente', JSON.stringify(formData));

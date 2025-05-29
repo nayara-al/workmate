@@ -11,6 +11,7 @@ import ProfileCard from "./ProfileCard";
 import ReviewSummary from "./ReviewSummary";
 import SearchInput from "./SearchInput";
 import AddServiceModal from "./AddServiceModal";
+import AddReviewModal from "./AddReviewModal";
 
 const MoleculeComponent = {
     AuthLink,
@@ -25,7 +26,8 @@ const MoleculeComponent = {
     Gallery,
     ProfileActions,
     ProfileCard,
-    AddServiceModal
+    AddServiceModal,
+    AddReviewModal
   };
   
   export default MoleculeComponent;

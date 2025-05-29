@@ -7,6 +7,9 @@ export interface IFormData {
   cidade: string;
   tipoUsuario: string;
   fotoPerfil: string;
+  disponibilidade: string,
+  formacao: string,
+  experiencia: string,
 }
 
 
