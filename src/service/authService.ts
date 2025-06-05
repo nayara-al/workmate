@@ -46,9 +46,9 @@ export async function registerUser(data: RegisterRequest): Promise<void> {
     const response = await api.post('/api/Auth/register', data);
     console.log('Usuário registrado com sucesso:', response.data);
   } catch (error: any) {
-    console.error('Erro ao registrar usuário:', error);
-    const errorMessage = error.message || 'Erro ao registrar usuário';
-    throw new Error(errorMessage);
+    const customMessage = error?.response?.data?.message || 'Erro ao registrar usuário';
+    console.error('Erro ao registrar usuário:', customMessage);
+    throw new Error(customMessage);
   }
 }
 
