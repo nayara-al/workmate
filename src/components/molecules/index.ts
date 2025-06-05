@@ -12,6 +12,7 @@ import ReviewSummary from "./ReviewSummary";
 import SearchInput from "./SearchInput";
 import AddServiceModal from "./AddServiceModal";
 import AddReviewModal from "./AddReviewModal";
+import PasswordChecklist from "./PasswordChecklist";
 
 const MoleculeComponent = {
     AuthLink,
@@ -27,7 +28,8 @@ const MoleculeComponent = {
     ProfileActions,
     ProfileCard,
     AddServiceModal,
-    AddReviewModal
+    AddReviewModal,
+    PasswordChecklist
   };
   
   export default MoleculeComponent;

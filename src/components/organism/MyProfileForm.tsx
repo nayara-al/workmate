@@ -54,6 +54,17 @@ export default function MyProfileForm({ user }: MyProfileFormProps) {
         </button>
       </div>
 
+      {userData.tipo?.toLowerCase() === 'prestador' && (
+        <div className="text-center mt-4">
+          <button
+            onClick={() => (window.location.href = '/associar-especialidade')}
+            className="bg-secondary text-white px-4 py-2 rounded hover:bg-secondary-dark transition"
+          >
+            Associar especialidades
+          </button>
+        </div>
+      )}
+
       {showModal && (
         <MoleculeComponent.AddServiceModal
           onServiceAdded={() => setReloadKey((prev) => prev + 1)}
