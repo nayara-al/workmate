@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import filtersData from "@/json/filtersData.json";
 import { fetchSubcategorias } from "@/service/filterService";
 import { ISubcategoria } from "@/interface/ICategoria";
+import ClearIcon from "@mui/icons-material/Clear";
 
 export default function Filter() {
   const router = useRouter();
@@ -14,6 +15,7 @@ export default function Filter() {
   /* const [notaMinima, setNotaMinima] = useState(""); */
   const [subcategoriaNome, setSubcategoriaNome] = useState("");
   const [subcategorias, setSubcategorias] = useState<ISubcategoria[]>([]);
+  const [nomeProfissional, setNomeProfissional] = useState("");
 
   const estados = filtersData.estados;
   const cidades = estados.find((estado) => estado.sigla === estadoSelecionado)?.cidades || [];
@@ -41,6 +43,10 @@ export default function Filter() {
     if (subcategoriaNome && subcategoriaNome !== "") {
       searchParams.set("subcategoriaNome", subcategoriaNome);
     }
+
+    if (nomeProfissional.trim()) {
+      searchParams.set("nome", nomeProfissional.trim());
+    }
   
     /* if (notaMinima && notaMinima !== "") {
       searchParams.set("notaMinima", notaMinima);
@@ -60,6 +66,18 @@ export default function Filter() {
           ))}
         </select>
       </div> */}
+       <div>
+        <h3 className="bg-primary text-secondary font-bold text-center py-2 rounded">
+          Nome do Profissional
+        </h3>
+        <input
+          type="text"
+          placeholder="Ex: Ana Silva"
+          value={nomeProfissional}
+          onChange={(e) => setNomeProfissional(e.target.value)}
+          className="w-full mt-2 border rounded p-2 text-black"
+        />
+      </div>
 
       <h3 className="bg-primary text-secondary font-bold text-center py-2 rounded">Classificação</h3>
       <select
@@ -69,7 +87,7 @@ export default function Filter() {
       >
         <option value="">Selecione uma subcategoria</option>
         {subcategorias.map((sub) => (
-          <option key={sub.id} value={sub.id}>
+          <option key={sub.id} value={sub.nome}>
             {sub.nome}
           </option>
         ))}
@@ -108,10 +126,23 @@ export default function Filter() {
       </div>
 
       <button
-        className="w-full bg-primary text-secondary font-bold py-2 rounded hover:opacity-90"
+        className="w-full bg-secondary text-primary font-bold py-2 rounded hover:opacity-90"
         type="submit"
       >
         Buscar
+      </button>
+      <button
+        type="button"
+        onClick={() => {
+          setEstadoSelecionado("");
+          setCidadeSelecionada("");
+          setNomeProfissional("");
+          router.push("/pesquisa");
+        }}
+        className="w-full flex items-center justify-center gap-2 mt-2 bg-gray-300 text-black font-medium py-2 rounded hover:bg-gray-400"
+      >
+        <ClearIcon fontSize="small" />
+        Limpar filtros
       </button>
     </form>
   );

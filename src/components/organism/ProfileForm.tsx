@@ -6,7 +6,7 @@ import { fetchUsuarioById } from "@/service/professionalService";
 import { IProfessional } from "@/interface/IProfessional";
 import { useSearchParams } from "next/navigation";
 import AtomComponent from "../atoms";
-import { isAuthenticated } from "@/service/authService";
+/* import { isAuthenticated } from "@/service/authService"; */
 
 interface ProfileFormProps {
   id: string;
@@ -15,7 +15,7 @@ interface ProfileFormProps {
 
 export default function ProfileForm({ id }: ProfileFormProps) {
   const [professional, setProfessional] = useState<IProfessional | null>(null);
-  const [showReviewModal, setShowReviewModal] = useState(false);
+  /* const [showReviewModal, setShowReviewModal] = useState(false); */
   const searchParams = useSearchParams();
   const mediaNota = Number(searchParams.get("mediaNota") || 0);
 
@@ -52,7 +52,7 @@ export default function ProfileForm({ id }: ProfileFormProps) {
       <div className="flex flex-col justify-start items-center w-full h-full p-8">
         <MoleculeComponent.ReviewSummary />
 
-        {isAuthenticated() && (
+        {/* {isAuthenticated() && (
           <>
             <button
               className="mt-4 bg-blue-600 text-white px-4 py-2 rounded"
@@ -71,7 +71,7 @@ export default function ProfileForm({ id }: ProfileFormProps) {
               />
             )}
           </>
-        )}
+        )} */}
 
         <MoleculeComponent.OfferedServices userId={id} />
         <MoleculeComponent.Gallery />
