@@ -1,28 +1,21 @@
+import React from "react";
+
 type SelectOption = { value: string; label: string };
 
-interface SelectProps {
-  id: string;
+interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
   options: SelectOption[];
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  disabled?: boolean;
 }
 
-export default function Select({ id, options, value, onChange, disabled = false }: SelectProps) {
+export default function Select({ options, ...props }: SelectProps) {
   return (
-    <div className="mb-4 text-black">
-      <select
-        id={id}
-        className="w-full p-2 border border-gray-300 rounded"
-        value={value}
-        onChange={onChange}
-        disabled={disabled}
-      >
-        <option value="" disabled>Selecione...</option>
-        {options.map(({ value: val, label }) => (
-          <option key={val} value={val}>{label}</option>
-        ))}
-      </select>
-    </div>
+    <select
+      {...props}
+      className={`w-full p-2 border border-gray-300 rounded text-black ${props.className ?? ''}`}
+    >
+      <option value="" disabled>Selecione...</option>
+      {options.map(({ value, label }) => (
+        <option key={value} value={value}>{label}</option>
+      ))}
+    </select>
   );
 }

@@ -32,8 +32,8 @@ export default function ProfessionalCard({
       </div>
       <div>
         <div className="bg-white mt-2 p-2 rounded text-sm text-black">
-          <p><strong>Formação:</strong> {formacao}</p>
-          <p><strong>Exp.:</strong> {experiencia}</p>
+          <p className='line-clamp-2'><strong>Formação:</strong> {formacao}</p>
+          <p className='line-clamp-2'><strong>Exp.:</strong> {experiencia}</p>
           <p className="truncate max-w-[200px]">
             <strong>Espec.:</strong> {especializacoes?.join(', ') ?? 'Sem especializações'}
           </p>
@@ -53,10 +53,10 @@ export default function ProfessionalCard({
         <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
           <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
           <div className="fixed inset-0 flex items-center justify-center p-4">
-            <Dialog.Panel className="bg-white rounded-xl p-6 w-full max-w-md shadow-lg">
-              <Dialog.Title className="text-lg font-bold mb-4">📞 Informações de Contato</Dialog.Title>
-              <p><strong>Telefone:</strong> {telefone}</p>
-              <p><strong>Email:</strong> {email}</p>
+            <Dialog.Panel className="bg-white rounded-xl p-6 w-full max-w-md shadow-lg text-black">
+              <Dialog.Title className="text-lg font-bold mb-4 text-black">📞 Informações de Contato</Dialog.Title>
+              <p className='line-clamp-2 text-black'><strong>Telefone:</strong> {telefone}</p>
+              <p className='line-clamp-2 text-black'><strong>Email:</strong> {email}</p>
   
               <div className="mt-6 flex justify-end">
                 <button
